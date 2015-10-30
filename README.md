@@ -1,6 +1,7 @@
 # storedDict
 
 easy json file handling
+
 made for python3, but should be python2 compatible
 
 ## installation
