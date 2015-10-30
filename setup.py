@@ -8,7 +8,7 @@ setup(
   author = 'Jan Hartmann',
   author_email = 'stuff@kwoh.de',
   url = 'https://github.com/puhoy/storedDict',
-  download_url = 'https://github.com/puhoy/storedDict/tarball/0.1',
+  download_url = 'https://github.com/puhoy/storedDict/tarball/0.2',
   keywords = ['storage'], # arbitrary keywords
   classifiers = [],
 )
