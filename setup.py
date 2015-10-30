@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
   name = 'storedDict',
   packages = ['storedDict'],
-  version = '0.2',
+  version = '0.2.2',
   description = 'store dict as json',
   author = 'Jan Hartmann',
   author_email = 'stuff@kwoh.de',
   license='MIT',
   url = 'https://github.com/puhoy/storedDict',
-  download_url = 'https://github.com/puhoy/storedDict/tarball/0.2.1',
+  download_url = 'https://github.com/puhoy/storedDict/tarball/0.2.2',
   keywords = ['storage'],
   classifiers=[
     # How mature is this project? Common values are
