@@ -1,4 +1,5 @@
 import json
+import logging
 
 class AutoVivification(dict):
     """Implementation of perl's autovivification feature.
@@ -16,11 +17,11 @@ class StoredDict(dict):
         self.filename = filename
         try:
             super(StoredDict,self).__init__(json.load( open(filename, 'r')))
-        except ValueError:
-            print('value err')
+        except ValueError as e:
+            logging.error(e)
             super(StoredDict,self).__init__({})
-        except FileNotFoundError:
-            print('file not found err')
+        except FileNotFoundError as e:
+            logging.info('new file')
             super(StoredDict,self).__init__({})
 
     def __getitem__(self, item):
@@ -30,6 +31,9 @@ class StoredDict(dict):
             value = self[item] = AutoVivification()
             return value
 
-    def commit(self):
-        json.dump(self, open(self.filename, 'w+'), indent=2)
+    def commit(self, indent=None):
+        try:
+            json.dump(self, open(self.filename, 'w+'), indent=indent)
+        except Exception as e:
+            logging.error('error while saving: %s' % e)
 
