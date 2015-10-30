@@ -3,13 +3,12 @@ from distutils.core import setup
 setup(
   name = 'storedDict',
   packages = ['storedDict'],
-  version = '0.2.2',
+  version = '0.2.2.1',
   description = 'store dict as json',
   author = 'Jan Hartmann',
   author_email = 'stuff@kwoh.de',
   license='MIT',
   url = 'https://github.com/puhoy/storedDict',
-  download_url = 'https://github.com/puhoy/storedDict/tarball/0.2.2',
   keywords = ['storage'],
   classifiers=[
     # How mature is this project? Common values are
@@ -27,6 +26,7 @@ setup(
 
     # Specify the Python versions you support here. In particular, ensure
     # that you indicate whether you support Python 2, Python 3 or both.
+    'Programming Language :: Python',
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
@@ -34,5 +34,7 @@ setup(
     'Programming Language :: Python :: 3.2',
     'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
+
+    "Operating System :: OS Independent"
 ],
 )
