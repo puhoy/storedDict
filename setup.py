@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
   name = 'storedDict',
   packages = ['storedDict'],
-  version = '0.2.3',
+  version = '0.2.4',
   description = 'store dict as json',
   author = 'Jan Hartmann',
   author_email = 'stuff@kwoh.de',
