@@ -32,3 +32,6 @@ made for python3, but should be python2 compatible
       }
     }
 
+if autocommit is set when initializing, the commit will be called automatically on each set!
+    
+    >>> d = storedDict.StoredDict('testfile.json', autocommit=True)
