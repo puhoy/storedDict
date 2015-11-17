@@ -2,12 +2,11 @@ import json
 import logging
 
 
-
 class AutoVivification(dict):
     """Implementation of perl's autovivification feature.
+    based on
     http://stackoverflow.com/questions/651794/whats-the-best-way-to-initialize-a-dict-of-dicts-in-python
     """
-
     def __init__(self, storedDict, **kwargs):
         super(AutoVivification, self).__init__(**kwargs)
         self.storedDict = storedDict
@@ -17,8 +16,6 @@ class AutoVivification(dict):
             return dict.__getitem__(self, item)
         except KeyError:
             value = self[item] = type(self)(self.storedDict)
-            if self.storedDict.autocommit:
-                self.storedDict.commit()
             return value
 
     def __setitem__(self, key, value):
@@ -27,9 +24,17 @@ class AutoVivification(dict):
             self.storedDict.commit()
 
 
-
 class StoredDict(dict):
     def __init__(self, filename, autocommit=None, *args, **kwargs):
+        """
+        initialize a new StoredDict
+
+        :param filename: filename to save everything in json format
+        :param autocommit: if True, commit on every change
+        :param args:
+        :param kwargs:
+        :return:
+        """
         self.filename = filename
         self.autocommit = autocommit
         try:
@@ -47,14 +52,11 @@ class StoredDict(dict):
             return dict.__getitem__(self, item)
         except KeyError:
             self[item] = AutoVivification(self)
-            if self.autocommit:
-                self.commit()
             return self[item]
 
     def __setitem__(self, key, value):
         super(StoredDict, self).__setitem__(key, value)
         if self.autocommit:
-            print('commiting %s' % json.dumps(self))
             self.commit()
 
     def commit(self, indent=False):
