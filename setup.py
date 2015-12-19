@@ -3,16 +3,15 @@ import sys
 from setuptools.command.test import test as TestCommand
 import os
 
+extra = {}
+if sys.version_info >= (3,):
+    extra['use_2to3'] = True
+
 tests_require = [
     'pytest',
     'pytest-pep8',
     'pytest-cov',
 ]
-
-extra = {}
-
-if sys.version_info >= (3,):
-    extra['use_2to3'] = True
 
 
 class PyTest(TestCommand):
