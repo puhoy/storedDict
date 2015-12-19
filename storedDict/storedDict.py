@@ -43,7 +43,7 @@ class StoredDict(dict):
         except ValueError as e:
             logging.error(e)
             super(StoredDict,self).__init__({})
-        except FileNotFoundError as e:
+        except IOError as e:
             logging.info('new file')
             super(StoredDict, self).__init__({})
 
