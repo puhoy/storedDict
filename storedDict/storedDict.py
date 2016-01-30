@@ -59,7 +59,7 @@ class StoredDict(dict):
         if self.autocommit:
             self.commit()
 
-    def commit(self, indent=False):
+    def commit(self, indent=None):
         try:
             with open(self.filename, 'w+') as f:
                 json.dump(self, f, indent=indent)
